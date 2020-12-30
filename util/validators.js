@@ -19,6 +19,8 @@ module.exports.validateRegisterInput = (
       if (password === '') {
         errors.password = 'Password must not empty';
       } else if (password !== confirmPassword) {
+        console.log('pw', password)
+        console.log('cpw', confirmPassword)  
         errors.confirmPassword = 'Passwords must match';
       }
 

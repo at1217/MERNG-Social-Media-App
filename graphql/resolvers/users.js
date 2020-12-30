@@ -8,7 +8,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const generateToken = (user) => {
-    jwt.sign({
+    return jwt.sign({
         id: user.id,
         email: user.email,
         username: user.username
@@ -45,15 +45,14 @@ module.exports = {
             };
             
         },
-        async register(_, { registerInput: { username, email, password, confirmpassword }}, context, info) {
+        async register(_, { registerInput: { username, email, password, confirmPassword }}, context, info) {
 
-            const { valid, errors } = validateRegisterInput(username, email, password, confirmpassword);
+            const { valid, errors } = validateRegisterInput(username, email, password, confirmPassword);
 
             if (!valid) {
                 throw new UserInputError('Errors', { errors });
             }
-
-            const user = User.findOne( { username });
+            const user = await User.findOne( { username });
             if (user) {
                 throw new UserInputError('Username is taken', {
                     errors: {
