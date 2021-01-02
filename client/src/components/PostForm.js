@@ -23,8 +23,6 @@ function PostForm() {
         }
     });
 
-    
-
     function createPostCallback() {
         createPost()
     }

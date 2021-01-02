@@ -18,6 +18,7 @@ const generateToken = (user) => {
 module.exports = {
     Mutation: {
         async login(_, { username, password }) {
+            
             const {errors, valid } = validateLoginInput(username, password);
 
             if (!valid) {
@@ -34,7 +35,7 @@ module.exports = {
             const match = await bcrypt.compare(password, user.password);
             if (!match) {
                 errors.general = 'Wrong credentials';
-                throw new UserInputError('Wrong credentials, { errors }');
+                throw new UserInputError('Wrong credentials', { errors });
             }
             const token = generateToken(user);
             
@@ -71,7 +72,6 @@ module.exports = {
             });
 
             const res = await newUser.save();
-
             const token = generateToken(res);
 
             return {

@@ -1,6 +1,5 @@
 import React, { useContext, useState, useRef } from 'react';
 import { gql,useQuery, useMutation } from '@apollo/client';
-import { FETCH_POSTS_QUERY } from '../util/graphql';
 import { Button, Card, Grid, Image, Icon, Label, Form } from 'semantic-ui-react';
 import moment from 'moment';
 import MyPopup from '../util/MyPopup'
@@ -14,7 +13,6 @@ function SinglePost(props) {
     const commentInputRef = useRef(null)
     const [comment, setComment] = useState('')
     const postId = props.match.params.postId;
-    console.log(postId)
     const { data: { getPost: post } = {}} = useQuery(FETCH_POST_QUERY, {
         variables: {postId},
 

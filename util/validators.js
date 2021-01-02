@@ -19,8 +19,6 @@ module.exports.validateRegisterInput = (
       if (password === '') {
         errors.password = 'Password must not empty';
       } else if (password !== confirmPassword) {
-        console.log('pw', password)
-        console.log('cpw', confirmPassword)  
         errors.confirmPassword = 'Passwords must match';
       }
 
@@ -28,7 +26,7 @@ module.exports.validateRegisterInput = (
           errors,
           valid: Object.keys(errors).length < 1
       }
-}
+};
 
 module.exports.validateLoginInput = ( username, password) => {
     const errors = {}
@@ -42,4 +40,4 @@ module.exports.validateLoginInput = ( username, password) => {
         errors,
         valid: Object.keys(errors).length < 1
     }
-}
+};

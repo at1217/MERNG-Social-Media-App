@@ -11,10 +11,6 @@ export const PostCard = ({ post: {body, createdAt, id, username, likeCount, comm
 
     const { user } = useContext(AuthContext);
 
-    const likePost = () => {
-        console.log('Liked Post!');
-    }
-
     return (
         <Card fluid>
             <Card.Content>
@@ -35,7 +31,7 @@ export const PostCard = ({ post: {body, createdAt, id, username, likeCount, comm
                     content="Comment on post"
                     inverted
                     trigger={
-                        <Button as='div' labelPosition='right' as={Link} to={`/posts/${id}`}>
+                        <Button labelPosition='right' as={Link} to={`/posts/${id}`}>
                             <Button color='blue' basic>
                                 <Icon name='comments' />
                             </Button>
