@@ -9,6 +9,7 @@ To Learn how to use GraphQL and understand the architechture of social media app
 - Sign up & sign into their accout
 - Like others' posts
 - Put comments on others' posts
+- Create their own posts
 
 # Used Tech Stacks
 - React
